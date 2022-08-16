@@ -14,7 +14,7 @@ pipeline
                     }
                     else 
                     {
-                    exit 1
+                    sh 'exit 1'
                     }
                 }
             }
@@ -28,7 +28,7 @@ pipeline
                     }
                     else 
                     {
-                    exit 1
+                   sh 'exit 1'
                     }
                     }
             }
