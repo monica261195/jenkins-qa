@@ -11,17 +11,12 @@ pipeline {
         stage ("Test1") {
             steps {
                 script {
-                    if(params.BRANCH == 'main')
+                    if(params.BRANCH == 'master')
                     {
                         git branch: params.BRANCH, url: env.GIT_REPO
-                        sh '''
-                            #!/bin/bash 
-                            pwd 
-                            ls
-                            echo "This is a test1 stage"
-                            
-                        '''
-                    } else { 
+                        sh 'echo "This is a test1 stage in master branch"'     
+                    } 
+                    else { 
                         echo "Skipping test1 stage ....."    
                     }  
 
@@ -32,19 +27,17 @@ pipeline {
         stage ("Test2") {
             steps {
                 script {
-                    if(params.BRANCH == 'main')
+                    if(params.BRANCH == 'master')
                     {
                         git branch: params.BRANCH, url: env.GIT_REPO
-                        sh 'echo "This is a test2 stage"'   
-                        
-                    } else { 
+                        sh 'echo "This is a test2 stage in master branch"'     
+                    }
+                    else { 
                         echo "This is not main branch "    
                     }  
                     
                 }
             }
         }
-
-
      }  
 }
