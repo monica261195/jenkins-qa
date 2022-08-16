@@ -24,8 +24,27 @@ pipeline {
                     } else { 
                         echo "Skipping test1 stage ....."    
                     }  
+
                 }
             }
         }
+
+        stage ("Test2") {
+            steps {
+                script {
+                    if(params.BRANCH == 'main')
+                    {
+                        git branch: params.BRANCH, url: env.GIT_REPO
+                        sh 'echo "This is a test2 stage"'   
+                        
+                    } else { 
+                        echo "This is not main branch "    
+                    }  
+                    
+                }
+            }
+        }
+
+
      }  
 }
