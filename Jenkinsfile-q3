@@ -12,7 +12,8 @@ pipeline
                     {
                         sh 'echo "hello"'
                     }
-                    else {
+                    else 
+                    {
                     exit 1
                     }
                 }
@@ -25,7 +26,8 @@ pipeline
                     {
                         sh 'echo "HI"'
                     }
-                    else {
+                    else 
+                    {
                     exit 1
                     }
                     }
