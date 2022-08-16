@@ -33,7 +33,7 @@ pipeline {
                         sh 'echo "This is a test2 stage in master branch"'     
                     }
                     else { 
-                        echo "This is not main branch "    
+                        echo "This is not master branch "    
                     }  
                     
                 }
