@@ -16,7 +16,10 @@ pipeline {
                         git branch: params.BRANCH, url: env.GIT_REPO
                         sh 'echo "This is a test1 stage in master branch"'     
                     } 
+                    else
+                    {
                     exit 1
+                    }
                 }
             }
         }
@@ -29,7 +32,9 @@ pipeline {
                         git branch: params.BRANCH, url: env.GIT_REPO
                         sh 'echo "This is a test2 stage in master branch"'     
                     }
+                    else {
                     exit 1
+                    }
                 }
             }
         }
