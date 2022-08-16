@@ -1,37 +1,21 @@
-pipeline
-{
+pipeline {
     agent any
-    parameters{
-        string(name: 'STAGE', description: 'Enter stage name', defaultValue: 'null')
-              }
     stages {
-        stage('stage1') {
-            steps {
-                script {
-                    if(params.STAGE=='stage1')
-                    {
-                        sh 'echo "hello"'
-                    }
-                    else 
-                    {
-                    sh 'exit 1'
-                    }
+        stage ('stage1') {
+            when {
+                    expression {choice == '1'}
                 }
-            }
-            }
-        stage('stage2') {
-            steps {
-                script {
-                    if(params.STAGE=='stage2')
-                    {
-                        sh 'echo "HI"'
-                    }
-                    else 
-                    {
-                   sh 'exit 1'
-                    }
-                    }
-            }
+                steps {
+                    echo "Hello"                
+                }
+        }
+        stage ('stage2') {
+            when {
+                    expression {choice == '2'}
+                }
+                steps {
+                    echo "Hi" 
+                }
         }
     }
 }
