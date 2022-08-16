@@ -18,7 +18,7 @@ pipeline {
                     } 
                     else
                     {
-                    exit 1
+                    sh 'exit 1'
                     }
                 }
             }
@@ -33,7 +33,7 @@ pipeline {
                         sh 'echo "This is a test2 stage in master branch"'     
                     }
                     else {
-                    exit 1
+                    sh 'exit 1'
                     }
                 }
             }
