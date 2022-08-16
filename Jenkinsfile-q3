@@ -1,0 +1,30 @@
+pipeline
+{
+    agent any
+    parameters{
+        string(name: 'STAGE', description: 'Enter stage name', defaultValue: 'null')
+              }
+    stages {
+        stage('stage1') {
+            steps {
+                script {
+                    if(params.STAGE=='stage1')
+                    {
+                        sh 'echo "hello"'
+                    }
+                    exit 1
+                }
+            }
+        stage('stage2') {
+            steps {
+                script {
+                    if(params.STAGE=='stage2')
+                    {
+                        sh 'echo "HI"'
+                    }
+                    exit 1
+                    }
+            }
+        }
+    }
+}
