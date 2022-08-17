@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             when {
                 expression {
-                    env.BRANCH_NAME == 'master'
+                    params.BRANCH == 'master'
                 }
             }
 
@@ -23,7 +23,7 @@ pipeline {
         stage('Test') {
             when {
                 expression {
-                    env.BRANCH_NAME == 'master'
+                    params.BRANCH == 'master'
                 }
             }
             steps {
@@ -35,7 +35,7 @@ pipeline {
         stage('Test2') {
              when {
                 expression {
-                    env.BRANCH_NAME == 'master'
+                    params.BRANCH == 'master'
                 }
             }
             
