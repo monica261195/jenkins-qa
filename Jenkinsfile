@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'BRANCH', description: 'Enter the branch to build', defaultValue: 'null')
+        string(name: 'BRANCH', description: 'Enter the branch to build', defaultValue: '')
                 }
     environment {
                 GIT_REPO = "https://github.com/monica261195/jenkins-qa"
