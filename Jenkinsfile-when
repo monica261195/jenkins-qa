@@ -1,6 +1,9 @@
 pipeline {
 
     agent any
+    parameters {
+    choice(Name: 'Choice' , choices: ['main', 'branch1' , 'master'] , description: '')
+    }
 
     stages {
 
