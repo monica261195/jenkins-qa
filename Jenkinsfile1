@@ -1,13 +1,16 @@
 pipeline {
 
     agent any
+    parameters {
+    choice(Name: 'BRANCH' , choices: ['main' , 'branch1' , 'master'] , description: '')
+    }
 
     stages {
 
         stage('Build') {
             when {
                 expression {
-                    env.BRANCH_NAME == 'master'
+                    params.BRANCH == 'master' || params.BRANCH == 'main'
                 }
             }
 
@@ -20,7 +23,7 @@ pipeline {
         stage('Test') {
             when {
                 expression {
-                    env.BRANCH_NAME == 'master'
+                    params.BRANCH == 'master'
                 }
             }
             steps {
@@ -32,7 +35,7 @@ pipeline {
         stage('Test2') {
              when {
                 expression {
-                    env.BRANCH_NAME == 'master'
+                    params.BRANCH == 'master'
                 }
             }
             
