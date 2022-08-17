@@ -15,8 +15,7 @@ pipeline {
                         git branch: params.BRANCH, url: env.GIT_REPO
                         sh 'echo "This is a Test1 stage using master branch"'
                     } else { 
-                        echo "Skip Test1 stage"
-                        exit 1
+                        sh 'exit 1'
                     }
                 }
             }
@@ -29,8 +28,7 @@ pipeline {
                         git branch: params.BRANCH, url: env.GIT_REPO
                         echo "This is a Test2 stage using master branch" 
                     } else { 
-                        echo "This is not master branch"
-                        exit 1
+                        sh 'exit 1'
                     }                    
                 }
             }
