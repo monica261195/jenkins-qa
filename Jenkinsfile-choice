@@ -7,6 +7,13 @@ pipeline {
                 GIT_REPO = "https://github.com/monica261195/jenkins-qa"
                 }
     stages {
+    
+        stage ("Build") {
+             steps {
+                   sh 'echo "this is buid"'
+                   }
+                }
+    
         stage ("Test1") {
             steps {
                 script {
