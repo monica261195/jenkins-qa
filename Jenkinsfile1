@@ -1,0 +1,45 @@
+pipeline {
+
+    agent any
+
+    stages {
+
+        stage('Build') {
+            when {
+                expression {
+                    env.BRANCH_NAME == 'master'
+                }
+            }
+
+            steps {
+                echo "this is build"
+
+            }
+        }
+
+        stage('Test') {
+            when {
+                expression {
+                    env.BRANCH_NAME == 'master'
+                }
+            }
+            steps {
+                echo "this is test1"
+
+            }
+        }
+
+        stage('Test2') {
+             when {
+                expression {
+                    env.BRANCH_NAME == 'master'
+                }
+            }
+            
+            steps {
+                echo "this is test2"
+
+            }
+        }
+    }
+}
