@@ -1,0 +1,45 @@
+pipeline {
+
+    agent any
+    parameters {
+             text(description: 'Enter the required stages', name: 'stage')
+      /**  choice(name: 'stage' , choices: ['A','B','C'] , description: 'Enter the stage')
+        booleanParam(defaultValue: true, name: 'executeTests') */
+    }
+
+    stages {
+
+        stage('A') {
+            
+            steps {
+                echo "this is stage A"
+
+            }
+        }
+
+        stage('B') {
+           /** when {
+                expression {
+                    params.executeTests == true
+                }
+            } */
+            steps {
+                echo "this is stage B"
+
+            }
+        }
+
+        stage('C') {
+            /** when {
+                expression {
+                    params.executeTests == false
+                }
+            } */
+            
+            steps {
+                echo "this is stage C"
+
+            }
+        }
+    }
+}
