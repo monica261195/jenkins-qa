@@ -1,0 +1,33 @@
+def stageA_Fail = false
+
+pipeline {
+  agent any
+  stages {
+    stage( 'A' ) {
+	  steps {
+	    script {
+		  when {expression {return stageA_Fail = true} }
+		  echo "stage1"
+	    }
+	  }
+    }
+    stage('B') {
+    when {expression {return stageA_Fail = true} }
+     steps {
+      script {
+       echo "stage2"
+	   
+      }
+     }
+    }
+    stage('C') {
+    when {expression {return stageA_Fail != true} }
+     steps {
+       script {
+       echo "stage3"
+	   
+       }
+     }
+    }
+  }
+}
